@@ -1,12 +1,22 @@
-import React from 'react';
+import react, { useState } from 'react';
 import Question from './components/Question';
 
 const App = () => {
-  const question: string[] = ['What is my name?', 'What is my favorite color?'];
+  const [submit, setSubmit] = useState(false);
+
+  const questions: string[] = [
+    'What is my name?',
+    'What is my favorite color?',
+  ];
+
+  const onSubmit = () => {
+    setSubmit(true);
+    console.log('clicked');
+  };
 
   return (
     <div className='App'>
-      <Question question={question} />
+      <Question questions={questions} onClick={onSubmit} />
     </div>
   );
 };
